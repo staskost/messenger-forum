@@ -20,9 +20,9 @@ public class SqlConnect {
     private static Connection getConnection() throws SQLException {
         Connection conn;
         String connectionURL = "jdbc:mysql://localhost:3306/forum?autoReconnect=true&useSSL=false";
-        String username = "";
-        String passwordjdbc = "";
-        conn = DriverManager.getConnection(connectionURL, username, passwordjdbc);
+        String userna = "forumAdmin";
+        String passwordjdbc = "konnos1987";
+        conn = DriverManager.getConnection(connectionURL, userna, passwordjdbc);
         return conn;
 
     }

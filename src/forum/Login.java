@@ -8,6 +8,7 @@ import actions.ViewerActions;
 import entities.User;
 import static utills.Utilities.sc;
 import connect.SqlConnect;
+import encryption.CryptoConverter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +32,9 @@ public class Login {
         String un = sc.nextLine();
         System.out.println("Enter password:");
         String p = sc.nextLine();
+        String crpwd = CryptoConverter.encrypt(p);
 
-        User user = SqlConnect.getUser(un, p);
+        User user = SqlConnect.getUser(un, crpwd);
         if (user != null) {
             goToMenu(un);
         } else {
